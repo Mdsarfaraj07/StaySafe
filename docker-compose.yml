@@ -1,0 +1,15 @@
+# Optional: run MySQL without installing it.  docker compose up -d
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: staysafe-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: staysafe
+    ports:
+      - "3306:3306"
+    volumes:
+      - staysafe-data:/var/lib/mysql
+volumes:
+  staysafe-data:
